@@ -28,22 +28,19 @@ def make_chains(text_string):
         >>> make_chains("hi there mary hi there juanita")
         {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
     """
-#Create list of words, split on empty white space
-#Create tuple pairs as keys (starting at first 2), then shifting over 1
-#Add appropriate list of values based on tuple pair
-#Add all key-value pairs to an empty dictionary
+
 
     words = text_string.split()
 
 
     word_dict = {}
 
-    for i in range(len(words)-2):
+    for i in range(len(words) - 2):
 
-        key = (words[i], words[i+1])
-        word = words[i+2]
+        key = (words[i], words[i + 1])
+        word = words[i + 2]
 
-        if key not in word_dict.keys():
+        if key not in word_dict:
             word_dict[key] = []
 
         word_dict[key].append(word)
