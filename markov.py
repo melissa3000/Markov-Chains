@@ -54,11 +54,33 @@ def make_chains(text_string):
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
-    text = ""
+#Concatenate string from key with randomly chosen string from values, creating a new string
+#Do we store each link in a list and then join the strings?  Or keep concatenating into one string?
+    
 
-    # your code goes here
+
+    key = choice(chains.keys())
+
+    text = key[0] + " " + key[1] + " " 
+    
+    while key in chains:
+
+        next_word = choice(chains[key])
+        text += next_word + " "
+        key = (key[1], next_word)
 
     return text
+
+
+
+
+
+
+
+
+
+
+
 
 
 input_path = "green-eggs.txt"
@@ -73,3 +95,4 @@ chains = make_chains(input_text)
 random_text = make_text(chains)
 
 print random_text
+
